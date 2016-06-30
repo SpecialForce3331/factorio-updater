@@ -25,8 +25,10 @@ if [ "$hash_new" = "$hash_old" ]
 then
     echo "Identical, nothing to upgrade!";
 else
+    /usr/sbin/service factorio stop
     echo "Upgrading...";
     /bin/mv $FOLDER/$NEW_SERVER $FOLDER/$CURRENT_SERVER;
     /bin/tar -zxf $FOLDER/$CURRENT_SERVER --overwrite -C $FOLDER;
     echo "Done!";
+    echo "Please start Factorio server with SAVENAME as you need!"
 fi
